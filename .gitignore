@@ -1,6 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
+.firbase/
 /dist
 /tmp
 /out-tsc
@@ -16,6 +17,7 @@ speed-measure-plugin.json
 /.idea
 .project
 .classpath
+.firbase/
 .c9/
 *.launch
 .settings/
