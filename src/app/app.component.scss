@@ -1,0 +1,106 @@
+.input-wrapper,
+table {
+  width: 50%;
+}
+
+.input-wrapper,{
+  width: 50%;
+  margin: 40px auto;
+  position: relative;
+  display: inline-block;
+}
+
+.sub-header {
+  margin-top: 26px;
+  margin-bottom: 0;
+}
+
+.search-input,
+.validation-message,
+.clear-search {
+  font: 15px/24px "Lato", Arial, sans-serif;
+}
+
+.search-input {
+  font: 15px/24px "Lato", Arial, sans-serif;
+  width: 100%;
+  border: 0;
+  padding: 4px 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  ~ .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: darkgray;
+    transition: 0.4s;
+  }
+  ~ label{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 9px;
+    color: #aaa;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+  }
+  &:focus {
+    outline: none;
+    ~ .focus-border{
+      width: 100%;
+      transition: 0.4s;
+      left: 0;
+    }
+    ~ label {
+      top: -16px;
+      font-size: 12px;
+      color: darkgray;
+      transition: 0.3s;
+    }
+  } 
+}
+
+.validation-message {
+  color: red;
+  position: absolute;
+  top: 32px;
+  left: 0px;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.clear-search {
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+
+table {
+  margin: 0 auto 20px;
+  border: 2px solid darkgray;
+  padding: 0;
+  tbody {
+    text-align: left;
+  }
+  tr {
+    padding: none;
+  }
+  td {
+    border: 2px solid darkgray;
+    padding: 4px;
+  }
+  .go-link {
+    text-align: center;
+    background-color: green;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
