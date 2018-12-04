@@ -1,32 +1,6 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h2>Hacker news search client</h2>
   <p class="sub-header">Enter a search term to begin!</p>
-  <div class="input-wrapper">
-    <input [formControl]="searchString" class="search-input" type="text" placeholder="">
-    <label>Search...</label>
-    <span class="focus-border"></span>
-    <span class="validation-message">{{searchString.errors?.minlength && 'Must be a minimum of 6 characters'}}</span>
-  </div>
-  <a class="clear-search" (click)="onClear()">&times;</a>
-  <p *ngIf="isLoading">Loading...</p>
-  <div *ngIf="searchResults$ | async; let searchResults">
-    <p *ngIf="searchResults.hits.length === 0">Sorry, no results for this search</p>
-    <ng-container *ngIf="!isLoading && searchResults.hits.length > 0">
-      <app-paginator [currentPage]="searchPage" [totalPages]="searchResults.pages" (onPrevious)="handleOnPrevious()"
-        (onNext)="handleOnNext()"></app-paginator>
-      <table>
-        <tbody>
-          <ng-container *ngFor="let hit of searchResults.hits">
-            <tr>
-              <td>{{ hit.title || hit.story_title }}</td>
-              <td class="go-link"><a [href]="hit.url || hit.story_url" target="_blank">Go</a></td>
-            </tr>
-          </ng-container>
-        </tbody>
-      </table>
-      <app-paginator [currentPage]="searchPage" [totalPages]="searchResults.pages" (onPrevious)="handleOnPrevious()"
-        (onNext)="handleOnNext()"></app-paginator>
-    </ng-container>
-  </div>
+  <p>Hits per page: {{(searchResults$ | async)?.hitsPerPage }}</p>
+  <app-search-results (queryStringChange)="onQueryStringChange($event)" [searchResults]="(searchResults$ | async)?.results"></app-search-results>
 </div>

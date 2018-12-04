@@ -5,10 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PaginatorComponent } from './paginator/paginator.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { HackerNewsService } from './hacker-new.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SearchResultsComponent,
     PaginatorComponent,
   ],
   imports: [
@@ -16,7 +19,7 @@ import { PaginatorComponent } from './paginator/paginator.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HackerNewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

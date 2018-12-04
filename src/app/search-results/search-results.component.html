@@ -1,0 +1,21 @@
+<div class="input-wrapper">
+  <input [formControl]="searchString" class="search-input" type="text" placeholder="">
+  <label>Search...</label>
+  <span class="focus-border"></span>
+</div>
+<a class="clear-search" (click)="onClear()">&times;</a>
+<div *ngIf="hasSearchStr() && searchResults">
+  <p *ngIf="searchResults.hits.length === 0">Sorry, no results for this search</p>
+  <ng-container *ngIf="searchResults.hits.length > 0">
+    <table>
+      <tbody>
+        <ng-container *ngFor="let hit of searchResults.hits">
+          <tr>
+            <td>{{ hit.title || hit.story_title }}</td>
+            <td class="go-link"><a [href]="hit.url || hit.story_url" target="_blank">Go</a></td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
